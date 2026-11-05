@@ -1,4 +1,4 @@
-<section class="check-bar" aria-labelledby="consulta-titulo">
+<section id="barra-consulta" class="check-bar" aria-labelledby="consulta-titulo">
     <div class="check-bar__intro">
         <x-icon name="pin" class="size-12 text-navy-900 lg:size-14" />
         <div>

@@ -4,7 +4,7 @@
 @section('description', 'Comparte tu ubicación y descubre qué tecnologías, planes y precios corresponden a tu zona.')
 
 @section('content')
-    @include('pages.coverage.partials.navigation')
+    @include('partials.navigation', ['active' => 'coverage'])
 
     <main>
         @include('pages.coverage.partials.hero')
@@ -45,7 +45,7 @@
         @include('pages.coverage.partials.final-call')
     </main>
 
-    <div class="whatsapp-fallback" role="status" data-whatsapp-fallback hidden></div>
+    @include('partials.whatsapp-support')
 
     @include('pages.coverage.partials.templates')
 @endsection

@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createCoverageSession, mountCoveragePage } from '../../../resources/js/coverage/page.js';
 
 const LOCATION = { latitude: 20, longitude: -100, accuracy: 30 };
@@ -174,12 +174,132 @@ describe('createCoverageSession', () => {
     });
 });
 
+describe('createCoverageSession al salir de la página', () => {
+    it('una respuesta tardía tras leave no pinta nada (RF-30)', async () => {
+        const { session, located, checked, onChange } = build();
+
+        session.dispatch({ type: 'share' });
+        located[0].resolve({ status: 'ok', location: LOCATION });
+        await tick();
+
+        session.dispatch({ type: 'leave' });
+        onChange.mockClear();
+        checked[0].resolve({ status: 'ok', result: RESULT });
+        await tick();
+
+        expect(onChange).not.toHaveBeenCalled();
+        expect(session.getState()).toMatchObject({ phase: 'idle', answer: null, location: null, result: null });
+    });
+
+    it('una posición tardía tras leave no llega al servidor (RF-30)', async () => {
+        const { session, located, checkCoverage } = build();
+
+        session.dispatch({ type: 'share' });
+        session.dispatch({ type: 'leave' });
+        located[0].resolve({ status: 'ok', location: LOCATION });
+        await tick();
+
+        expect(checkCoverage).not.toHaveBeenCalled();
+        expect(session.getState().location).toBeNull();
+    });
+
+    it('leave no lanza otra consulta', () => {
+        const { session, requestLocation } = build();
+
+        session.dispatch({ type: 'share' });
+        session.dispatch({ type: 'leave' });
+
+        expect(requestLocation).toHaveBeenCalledTimes(1);
+    });
+});
+
+const fakeCoveragePage = () => {
+    const listeners = {};
+    const listens = () => ({ addEventListener: vi.fn() });
+    const radios = [
+        { name: 'address_confirmed', value: 'yes', checked: false },
+        { name: 'address_confirmed', value: 'no', checked: false },
+    ];
+    const results = {
+        ...listens(),
+        childElementCount: 0,
+        hidden: true,
+        focus: vi.fn(),
+        querySelectorAll: () => [],
+        replaceChildren() { this.childElementCount = 0; },
+        append() { this.childElementCount += 1; },
+    };
+    const fallback = { hidden: true, replaceChildren: vi.fn() };
+    const form = {
+        ...listens(),
+        dataset: { coverageWhatsappNumber: '+00 000 000 0000' },
+        querySelector: () => ({}),
+        querySelectorAll: () => radios,
+    };
+    const parts = {
+        '[data-coverage-form]': form,
+        '[data-coverage-results]': results,
+        '[data-whatsapp-fallback]': fallback,
+    };
+    const root = {
+        ...listens(),
+        querySelector: (selector) => parts[selector] ?? { content: { cloneNode: () => ({}) } },
+    };
+
+    vi.stubGlobal('addEventListener', (type, listener) => {
+        listeners[type] = listener;
+    });
+
+    return { root, radios, results, fallback, listeners };
+};
+
 describe('mountCoveragePage', () => {
+    afterEach(() => {
+        vi.unstubAllGlobals();
+    });
+
     it('no hace nada sin documento', () => {
         expect(mountCoveragePage(undefined)).toBeNull();
     });
 
     it('no hace nada en una página sin formulario de cobertura', () => {
         expect(mountCoveragePage({ querySelector: () => null })).toBeNull();
+    });
+
+    it('al salir deja pintado el estado inicial y oculta el aviso de WhatsApp (RF-30)', () => {
+        const { root, radios, results, fallback, listeners } = fakeCoveragePage();
+        const session = mountCoveragePage(root);
+
+        session.dispatch({ type: 'answer', value: 'no' });
+        fallback.hidden = false;
+        expect(radios[1].checked).toBe(true);
+        expect(results.hidden).toBe(false);
+
+        listeners.pagehide();
+
+        expect(session.getState()).toMatchObject({ phase: 'idle', answer: null, message: null });
+        expect(radios.some((radio) => radio.checked)).toBe(false);
+        expect(results.hidden).toBe(true);
+        expect(fallback.hidden).toBe(true);
+        expect(fallback.replaceChildren).toHaveBeenCalledWith();
+    });
+
+    it('al volver repinta los controles aunque el navegador los restaure (RF-33)', () => {
+        const { root, radios, listeners } = fakeCoveragePage();
+
+        mountCoveragePage(root);
+        radios[0].checked = true;
+
+        listeners.pageshow();
+
+        expect(radios[0].checked).toBe(false);
+    });
+
+    it('no escucha visibilitychange: abrir WhatsApp no cuenta como salir (RF-30)', () => {
+        const { root, listeners } = fakeCoveragePage();
+
+        mountCoveragePage(root);
+
+        expect(listeners.visibilitychange).toBeUndefined();
     });
 });

@@ -122,19 +122,24 @@ function paintResults(root, elements, state) {
 }
 
 // Sin número, los botones quedan inactivos y la consulta sigue funcionando (RF-43).
-function disableWhatsapp(root, container) {
+export function disableWhatsapp(root, container, placeNote = (button, note) => button.append(note)) {
     container.querySelectorAll('[data-whatsapp]').forEach((button) => {
         button.disabled = true;
-        button.append(cloneTemplate(root, 'whatsapp-unavailable'));
+        placeNote(button, cloneTemplate(root, 'whatsapp-unavailable'));
     });
 }
 
-function showWhatsappFallback(root, area, number) {
+export function showWhatsappFallback(root, area, number) {
     const note = cloneTemplate(root, 'whatsapp-fallback');
 
     fillSlot(note, 'whatsapp-number', number);
     area.replaceChildren(note);
     area.hidden = false;
+}
+
+function hideWhatsappFallback(area) {
+    area.replaceChildren();
+    area.hidden = true;
 }
 
 function planNameOf(button) {
@@ -257,6 +262,17 @@ export function mountCoveragePage(root) {
     if (!whatsappEnabled) {
         disableWhatsapp(root, root);
     }
+
+    // pagehide y no visibilitychange: abrir WhatsApp oculta la página sin salir de ella (RF-30).
+    // Se pinta aquí para que la copia que guarda el navegador ya esté en su estado inicial (RF-33).
+    globalThis.addEventListener('pagehide', () => {
+        session.dispatch({ type: 'leave' });
+        hideWhatsappFallback(elements.whatsappFallback);
+    });
+
+    globalThis.addEventListener('pageshow', () => {
+        paintControls(elements, session.getState());
+    });
 
     // Algunos navegadores restauran los campos al recargar; la respuesta no se conserva (RF-47).
     paintControls(elements, session.getState());

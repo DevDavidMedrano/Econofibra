@@ -5,6 +5,60 @@
         @case('home')
             <path d="M12 3 2 12h3v8h5.5v-5.5h3V20H19v-8h3z"/>
             @break
+        @case('casa')
+            <path d="M12 2.5 1 12.3h3.2V21h5.9v-6h3.8v6h5.9v-8.7H23l-4-3.6V4h-2.8v2.2z"/>
+            @break
+        @case('control')
+            <path fill-rule="evenodd" d="M7 6h10a6 6 0 0 1 5.9 5l.9 5.3a3 3 0 0 1-5.2 2.5L16 16H8l-2.6 2.8A3 3 0 0 1 .2 16.3L1.1 11A6 6 0 0 1 7 6ZM6 8.5v1.75H4.25v1.5H6v1.75h1.5v-1.75h1.75v-1.5H7.5V8.5ZM16.5 8.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM19 10.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/>
+            @break
+        @case('maletin')
+            <path fill-rule="evenodd" d="M9 3h6a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v4H1V9a2 2 0 0 1 2-2h4V5a2 2 0 0 1 2-2Zm0 4h6V5H9Z"/>
+            <path d="M1 14.5h9V16h4v-1.5h9V19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2Z"/>
+            @break
+        @case('cohete')
+            <path fill-rule="evenodd" d="M21.5 2.5c-5-.4-9.6 1.6-12.7 5.3L7 10l-4 .5L1 13.5l4.5 1 3.9 4 1.1 4.5 3-2 .5-4 2.2-1.8c3.7-3.1 5.7-7.7 5.3-12.7ZM15 7a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/>
+            <path d="M5 17c-1.5.5-2.5 2-3 5 3-.5 4.5-1.5 5-3Z"/>
+            @break
+        @case('conectividad')
+            <path d="M2 9a15 15 0 0 1 20 0M5.5 12.8a10 10 0 0 1 13 0M9 16.4a5 5 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="12" cy="20" r="1.8"/>
+            @break
+        @case('bolt')
+            <path d="M13.5 1 4 13.5h6L8.5 23 20 9.5h-6.5z"/>
+            @break
+        @case('shield-check')
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 4 5v6c0 5 3.4 9.2 8 11 4.6-1.8 8-6 8-11V5z"/>
+                <path d="m8 12 3 3 5-6"/>
+            </g>
+            @break
+        @case('headset')
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14v-2a8 8 0 0 1 16 0v2"/>
+                <path d="M19.5 20c0 1.5-2 2.5-5 2.5"/>
+            </g>
+            <rect x="2.5" y="13" width="4.5" height="7" rx="1.6"/>
+            <rect x="17" y="13" width="4.5" height="7" rx="1.6"/>
+            @break
+        @case('handshake')
+            <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1.5 7.5 6 5.5l4 1.2L13 5l5 1.8 4.5-1.3v8l-3 .5-6 6a1.7 1.7 0 0 1-2.4 0L4.5 14l-3-.5z"/>
+                <path d="M13 5 9 9a1.6 1.6 0 0 0 2.3 2.3l2.2-1.3 5.5 4"/>
+            </g>
+            @break
+        @case('gauge')
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 19a10 10 0 1 1 16 0"/>
+                <path d="m12 14 5-6M12 5v1.5M5.5 12H7M17 12h1.5"/>
+            </g>
+            <circle cx="12" cy="14" r="1.8"/>
+            @break
+        @case('facebook')
+            <path d="M14 8.5V6.6c0-.9.6-1.1 1-1.1h2.6V1.6h-3.5C10.2 1.6 9.3 4.5 9.3 6.4v2.1H6.8v4h2.5v9.9H14v-9.9h3.2l.4-4z"/>
+            @break
+        @case('youtube')
+            <path fill-rule="evenodd" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8ZM9.7 15.3V8.7l5.8 3.3z"/>
+            @break
         @case('chevron-down')
             <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             @break

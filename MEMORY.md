@@ -3,10 +3,12 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md` es el de Laravel.
 
 ## Estado
-- Spec 001 (consulta de cobertura) terminada: T1 a T10. Sin commits todavía.
-- Hecha solo la página `/cobertura`; `/` redirige ahí. La página principal y las demás no existen.
-- Antes de publicar: número de WhatsApp real, zonas, planes y precios reales sin datos de
-  ejemplo, e imágenes reales (ver "Pendiente antes de publicar" en la spec).
+- Specs 001 (consulta de cobertura) y 002 (página principal) terminadas y validadas en navegador.
+  La spec 001 está en el commit 51f9b4c; la spec 002 sigue sin commit.
+- Hechas `/` y `/cobertura`. Servicios, Soporte y Contacto no existen: van sin enlace en la navegación.
+- Antes de publicar: número de WhatsApp real, direcciones de Facebook y YouTube (`SITE_FACEBOOK_URL`,
+  `SITE_YOUTUBE_URL`), zonas, planes y precios reales, e imágenes reales de `/cobertura`.
+- Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona.
 
 ## Arrancar en local
 - PHP 8.4 por WinGet; si `php` no está en el PATH, añadir
@@ -15,9 +17,10 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
   `bin\mysqld --defaults-file=<esa ruta>\my.ini`; apagar con
   `mysqladmin -h 127.0.0.1 -u root shutdown`.
 - Primera vez: `CREATE DATABASE econofibra CHARACTER SET utf8mb4;` y
-  `php artisan migrate:fresh --seed`.
+  `php artisan migrate:fresh --seed`. Con datos ya cargados: `php artisan migrate` y
+  `php artisan db:seed --class="Database\Seeders\PlanCardSeeder"`.
 - `npm run build` y `php artisan serve --host=127.0.0.1 --port=8000 --no-reload`.
-  Abrir `http://127.0.0.1:8000/cobertura`.
+  Abrir `http://127.0.0.1:8000/`.
 - El usuario puede tener su propio servidor en 127.0.0.1:8080: no detenerlo.
 
 ## Probar
@@ -36,6 +39,10 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
 - Una captura de página completa pinta el aviso fijo de WhatsApp a media página: no es un fallo.
 - El cliente `mysql` de la consola muestra mal los acentos sin `--default-character-set=utf8mb4`.
 - El aviso de RF-44 es fijo; `.final-call__inner` reserva espacio para no tapar el botón final.
+- `emulate` recarga la página: ponerla antes de preparar stubs. Con Slow 3G la respuesta llega antes
+  de `pagehide`; para una respuesta tardía tras Atrás, retener `fetch` con un temporizador.
+- `innerText` de un elemento oculto devuelve su texto: comprobar `hidden`.
+- Las capturas de página completa a 1280 px recortan 15 px por la barra de desplazamiento.
 
-## Sin probar en la spec 001
+## Sin probar
 - Posición real de un dispositivo con permiso concedido y apertura real de WhatsApp.

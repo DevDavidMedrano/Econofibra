@@ -7,6 +7,7 @@ Principios que ninguna spec, plan o tarea puede incumplir. El detalle está en `
 - Nunca se asume que todos los clientes tienen acceso a los mismos planes, tecnologías o precios.
 - La cobertura se valida por ubicación y factibilidad técnica.
 - Sin confirmación no se garantiza disponibilidad ni se presentan precios como definitivos.
+- Los textos comerciales generales de la página principal, como el del hero, no son una oferta para un domicilio concreto: la disponibilidad se confirma en la consulta de cobertura.
 
 ## II. Los precios los decide el servidor
 
@@ -48,7 +49,7 @@ Principios que ninguna spec, plan o tarea puede incumplir. El detalle está en `
 
 - Toda página funciona en móvil y escritorio.
 - Se respeta la identidad visual de `AGENTS.md`: azul marino, amarillo de acento, fondos blancos y azul claro.
-- El diseño reproduce fielmente las imágenes de referencia, con solo los cambios que exigen estas reglas.
+- El diseño reproduce fielmente las imágenes de referencia, con solo los cambios que exigen estas reglas o que el usuario apruebe.
 
 ## IX. Proceso
 

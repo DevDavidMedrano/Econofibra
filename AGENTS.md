@@ -104,7 +104,7 @@ Debe incluir:
 7. Resultados de cobertura.
 8. Botón de contacto por WhatsApp.
 
-Reproducir fielmente el diseño de las imágenes (estructura, colores, textos, tarjetas y estilo), aplicando solo los cambios que exigen estas reglas. El resultado debe ser una página real, funcional y adaptable, no una imagen.
+Reproducir fielmente el diseño de las imágenes (estructura, colores, textos, tarjetas y estilo), aplicando solo los cambios que exigen estas reglas o que el usuario apruebe. El resultado debe ser una página real, funcional y adaptable, no una imagen.
 
 ---
 

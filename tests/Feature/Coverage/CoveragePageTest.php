@@ -21,11 +21,6 @@ final class CoveragePageTest extends TestCase
         $this->withoutVite();
     }
 
-    public function test_home_redirects_to_the_coverage_page(): void
-    {
-        $this->get('/')->assertRedirect('/cobertura');
-    }
-
     public function test_page_shows_the_rf1_sections_in_order(): void
     {
         $text = $this->visibleText();
@@ -94,16 +89,22 @@ final class CoveragePageTest extends TestCase
     public function test_only_the_active_option_has_a_link(): void
     {
         $xpath = $this->page();
-        $links = $xpath->query('//header//nav//a');
+        $links = [];
 
-        $this->assertCount(1, $links);
+        foreach ($xpath->query('//header//nav//a') as $link) {
+            $this->assertInstanceOf(DOMElement::class, $link);
+            $links[$this->clean($link->textContent)] = $link;
+        }
 
-        $active = $links->item(0);
+        $this->assertSame(['Inicio', 'Planes', 'Cobertura'], array_keys($links));
+        $this->assertSame(url('/'), $links['Inicio']->getAttribute('href'));
+        $this->assertStringEndsWith('/#planes', $links['Planes']->getAttribute('href'));
+        $this->assertStringEndsWith('/cobertura', $links['Cobertura']->getAttribute('href'));
 
-        $this->assertInstanceOf(DOMElement::class, $active);
-        $this->assertSame('Cobertura', $this->clean($active->textContent));
-        $this->assertSame('page', $active->getAttribute('aria-current'));
-        $this->assertStringEndsWith('/cobertura', $active->getAttribute('href'));
+        $this->assertSame('page', $links['Cobertura']->getAttribute('aria-current'));
+        $this->assertCount(1, $xpath->query('//header//*[@aria-current]'));
+
+        $this->assertSame(url('/'), $this->single($xpath, '//header//a[.//img]')->getAttribute('href'));
     }
 
     public function test_confirmation_starts_unanswered_and_the_share_button_inactive(): void

@@ -80,6 +80,10 @@ export function reduce(state, event) {
         case 'newQuery':
             return state.phase === 'result' ? { ...initialState, queryId: state.queryId } : state;
 
+        // Conservar queryId evita lanzar otra consulta; las respuestas tardías ya no encuentran su fase.
+        case 'leave':
+            return { ...initialState, queryId: state.queryId };
+
         case 'position':
             return isCurrent(state, event, 'locating')
                 ? { ...state, phase: 'checking', location: event.location }

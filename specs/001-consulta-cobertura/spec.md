@@ -47,7 +47,7 @@ Que una persona, desde el domicilio donde quiere el servicio, comparta su ubicac
   8. Aviso de RF-2.
   9. Llamada final "¿No sabes qué tecnología llega a tu casa?", "Nuestro equipo te ayuda" y el botón "Contáctanos por WhatsApp".
 - RF-2: El sistema DEBE mostrar en la página el aviso "La cobertura está sujeta a validación técnica del domicilio."
-- RF-3: El sistema DEBE mostrar en la navegación el logotipo, las opciones "Inicio", "Servicios", "Planes", "Cobertura", "Soporte" y "Contacto" en el orden de la imagen de referencia, con "Cobertura" marcada como página activa, y el botón de WhatsApp "Contáctanos". Las opciones sin página se muestran sin enlace y se activan cuando esas páginas existan.
+- RF-3: El sistema DEBE mostrar en la navegación el logotipo, las opciones "Inicio", "Servicios", "Planes", "Cobertura", "Soporte" y "Contacto" en el orden de la imagen de referencia, con "Cobertura" marcada como página activa, y el botón de WhatsApp "Contáctanos". "Inicio" lleva a la página principal y "Planes" a su sección de planes (spec 002); la raíz del sitio muestra la página principal y ya no redirige a esta página. Las demás opciones sin página se muestran sin enlace y se activan cuando esas páginas existan.
 - RF-4: El sistema DEBE presentar la página sin desplazamiento horizontal y con todas sus funciones disponibles en anchos de pantalla de 360 px y de 1280 px.
 - RF-5: El sistema DEBE reproducir a 1280 px la imagen de referencia docs/referencias/pagina-cobertura.jpeg en estructura, orden de secciones, colores, textos, tarjetas y estilo, salvo por las desviaciones de RF-52. Se comprueba comparando la página con la imagen, sección por sección, en estructura, orden, colores, textos y estilo, sin exigir igualdad píxel a píxel.
 - RF-52: El sistema DEBE apartarse de la imagen de referencia solo en estas desviaciones:
@@ -55,7 +55,7 @@ Que una persona, desde el domicilio donde quiere el servicio, comparta su ubicac
   - La barra "Consulta tu cobertura" conserva su lugar y aspecto, pero contiene los elementos de RF-1, crece en altura según ese contenido y su botón amarillo dice "Compartir ubicación" en lugar de "Consultar disponibilidad".
   - El texto "Ingresa tu dirección..." se sustituye por el de RF-1.
   - El paso 3 del proceso dice "Te mostramos planes y precio para tu zona" en lugar de "para tu domicilio".
-  - Las opciones de navegación sin página se muestran sin enlace (RF-3).
+  - "Inicio" y "Planes" enlazan a la página principal y las demás opciones de navegación sin página se muestran sin enlace (RF-3).
   - El logotipo y las ilustraciones pueden ser imágenes temporales parecidas y libres de uso.
   - Los elementos que la imagen no incluye (resultados, avisos, mensajes y estados inactivos) se añaden con los mismos colores, tipografía, bordes redondeados y sombras.
 - RF-53: El sistema DEBE mostrar la zona de resultados inmediatamente debajo de la barra "Consulta tu cobertura", visible solo cuando haya un resultado o mensaje que mostrar.
@@ -72,7 +72,7 @@ Que una persona, desde el domicilio donde quiere el servicio, comparta su ubicac
 - RF-9: CUANDO el usuario pulsa el botón activo de compartir ubicación o un botón de reintentar, el sistema DEBE solicitar al dispositivo una posición nueva, sin reutilizar una posición guardada por el navegador ni por la página.
 - RF-29: El sistema DEBE mostrar, antes de solicitar la ubicación, el aviso "Usamos tu ubicación para consultar la cobertura y no la guardamos. Si abres WhatsApp, prepararemos un mensaje con tu ubicación; tú decides si lo envías".
 - RF-30: El servidor DEBE descartar la ubicación al responder la consulta, sin escribirla en la base de datos ni en los registros del sistema.
-- RF-47: MIENTRAS la página siga abierta, el navegador DEBE conservar la ubicación de la última consulta solo en esa página, para armar el mensaje de WhatsApp, y borrarla al recargar o cerrar la página o cuando RF-8, RF-37, RF-38 o RF-55 la descarten, sin escribirla en el almacenamiento persistente del navegador.
+- RF-47: MIENTRAS la página siga abierta, el navegador DEBE conservar la ubicación de la última consulta solo en esa página, para armar el mensaje de WhatsApp, y borrarla al recargar o cerrar la página o cuando RF-8, RF-37, RF-38, RF-55, o RF-30 y RF-33 de la spec 002 la descarten, sin escribirla en el almacenamiento persistente del navegador.
 - RF-31: El sistema DEBE tratar la confirmación de domicilio como una declaración del usuario, no como una prueba, y omitir cualquier texto que afirme que el domicilio fue verificado.
 - RF-10: SI no se obtiene la ubicación, ENTONCES el sistema DEBE ofrecer validación manual, sin mostrar planes ni precios, y mostrar según la causa:
   - Permiso negado o bloqueado: los pasos para permitir la ubicación en los ajustes del navegador y un botón de reintentar.

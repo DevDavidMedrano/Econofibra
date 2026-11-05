@@ -34,6 +34,39 @@ describe('estado inicial', () => {
     });
 });
 
+describe('salida de la página (RF-30, RF-33)', () => {
+    it('descarta el resultado, la ubicación y la respuesta a la pregunta', () => {
+        const state = withResult();
+
+        expect(reduce(state, { type: 'leave' })).toEqual({ ...initialState, queryId: state.queryId });
+    });
+
+    it('conserva el número de consulta para no lanzar otra', () => {
+        const state = checking();
+
+        expect(reduce(state, { type: 'leave' }).queryId).toBe(state.queryId);
+    });
+
+    it('descarta una consulta en curso y sus respuestas tardías', () => {
+        const state = checking();
+        const left = reduce(state, { type: 'leave' });
+
+        expect(reduce(left, { type: 'response', queryId: state.queryId, result: RESULT_A })).toBe(left);
+        expect(reduce(left, { type: 'rejected', queryId: state.queryId })).toBe(left);
+        expect(reduce(left, { type: 'failed', queryId: state.queryId })).toBe(left);
+        expect(reduce(left, { type: 'position', queryId: state.queryId, location: LOCATION })).toBe(left);
+        expect(reduce(left, { type: 'locationFailed', queryId: state.queryId, cause: 'denied' })).toBe(left);
+    });
+
+    it('deja la pregunta sin responder y sin poder compartir', () => {
+        const left = reduce(withResult(), { type: 'leave' });
+
+        expect(left.answer).toBeNull();
+        expect(canShare(left)).toBe(false);
+        expect(optionsEnabled(left)).toBe(true);
+    });
+});
+
 describe('botón de compartir ubicación (RF-7)', () => {
     it('está inactivo sin respuesta', () => {
         expect(canShare(initialState)).toBe(false);
