@@ -50,7 +50,7 @@ final class HomePageTest extends TestCase
             '¡Contrata Ahora!',
             'Alta Velocidad',
             'Conexión Estable',
-            'Soporte Técnico 24/7',
+            'Soporte Técnico',
             'Cobertura en tu Zona',
             'Nuestros Planes',
             'Elige el plan ideal para ti',
@@ -86,7 +86,7 @@ final class HomePageTest extends TestCase
             $options[] = $this->clean($item->textContent);
         }
 
-        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], $options);
+        $this->assertSame(['Inicio', 'Servicios', 'Cobertura', 'Soporte', 'Contacto'], $options);
 
         $links = [];
 
@@ -95,9 +95,8 @@ final class HomePageTest extends TestCase
             $links[$this->clean($link->textContent)] = $link;
         }
 
-        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
+        $this->assertSame(['Inicio', 'Servicios', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
         $this->assertSame(url('/'), $links['Inicio']->getAttribute('href'));
-        $this->assertStringEndsWith('/#planes', $links['Planes']->getAttribute('href'));
         $this->assertStringEndsWith('/cobertura', $links['Cobertura']->getAttribute('href'));
         $this->assertStringEndsWith('/servicios', $links['Servicios']->getAttribute('href'));
         $this->assertStringEndsWith('/soporte', $links['Soporte']->getAttribute('href'));

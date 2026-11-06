@@ -19,7 +19,6 @@
                         Servicios<x-icon name="chevron-down" class="size-3.5" />
                     </a>
                 </li>
-                <li><a class="nav-option" href="{{ route('home') }}/#planes">Planes</a></li>
                 <li>
                     <a @class(['nav-option', 'nav-option--active' => $active === 'coverage']) href="{{ route('coverage.page') }}" @if ($active === 'coverage') aria-current="page" @endif>
                         <x-icon name="pin" class="size-5" />Cobertura

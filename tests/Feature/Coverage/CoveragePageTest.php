@@ -76,7 +76,7 @@ final class CoveragePageTest extends TestCase
             $options[] = $this->clean($item->textContent);
         }
 
-        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], $options);
+        $this->assertSame(['Inicio', 'Servicios', 'Cobertura', 'Soporte', 'Contacto'], $options);
 
         $logo = $this->single($xpath, '//header//img');
         $this->assertSame('Econofibra JLINK', $logo->getAttribute('alt'));
@@ -96,9 +96,8 @@ final class CoveragePageTest extends TestCase
             $links[$this->clean($link->textContent)] = $link;
         }
 
-        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
+        $this->assertSame(['Inicio', 'Servicios', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
         $this->assertSame(url('/'), $links['Inicio']->getAttribute('href'));
-        $this->assertStringEndsWith('/#planes', $links['Planes']->getAttribute('href'));
         $this->assertStringEndsWith('/cobertura', $links['Cobertura']->getAttribute('href'));
         $this->assertStringEndsWith('/servicios', $links['Servicios']->getAttribute('href'));
         $this->assertStringEndsWith('/soporte', $links['Soporte']->getAttribute('href'));

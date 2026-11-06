@@ -33,7 +33,7 @@ final class InformationPagesTest extends TestCase
                 'Consultar en mi zona',
             ]],
             'soporte' => ['/soporte', 'Soporte', [
-                'Soporte Técnico 24/7',
+                'Soporte Técnico',
                 'Revisa que los cables',
                 'Reinicia el módem',
                 'Pide ayuda por WhatsApp',

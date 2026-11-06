@@ -12,7 +12,7 @@
         <ul class="home-hero__benefits">
             <li><x-icon name="bolt" class="size-9" /><span>Alta Velocidad</span></li>
             <li><x-icon name="shield-check" class="size-9" /><span>Conexión Estable</span></li>
-            <li><x-icon name="headset" class="size-9" /><span>Soporte Técnico 24/7</span></li>
+            <li><x-icon name="headset" class="size-9" /><span>Soporte Técnico</span></li>
             <li><x-icon name="pin" class="size-9" /><span>Cobertura en tu Zona</span></li>
         </ul>
     </div>

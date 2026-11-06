@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title', 'Soporte')
-@section('description', 'Soporte Técnico 24/7 de Econofibra JLINK: revisa unos pasos básicos y pide ayuda por WhatsApp.')
+@section('description', 'Soporte técnico de Econofibra JLINK: revisa unos pasos básicos y pide ayuda por WhatsApp.')
 
 @section('content')
     @include('partials.navigation', ['active' => 'support'])
 
     <main data-whatsapp-number="{{ $whatsappNumber }}">
         <x-page-hero>
-            <x-slot:title>Soporte Técnico <em>24/7</em></x-slot:title>
+            <x-slot:title>Soporte <em>Técnico</em></x-slot:title>
 
             Si tu internet falla, prueba estos pasos y escríbenos por WhatsApp.
         </x-page-hero>

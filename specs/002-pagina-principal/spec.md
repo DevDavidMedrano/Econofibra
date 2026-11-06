@@ -29,12 +29,12 @@ Que una persona que llega al sitio conozca a Econofibra JLINK, sus planes y sus 
 - RF-1: CUANDO el usuario abre la raíz del sitio, el sistema DEBE mostrar la página principal sin redirigir a la página de cobertura.
 - RF-2: El sistema DEBE mostrar en la página principal estas secciones, en este orden y con estos textos:
   1. Navegación (RF-3).
-  2. Mensaje principal "Conectando tu mundo con mayor velocidad", subtítulo "Internet de fibra óptica confiable, estable y rápido para tu hogar o negocio.", botón "¡Contrata Ahora!" e indicadores "Alta Velocidad", "Conexión Estable", "Soporte Técnico 24/7" y "Cobertura en tu Zona".
+  2. Mensaje principal "Conectando tu mundo con mayor velocidad", subtítulo "Internet de fibra óptica confiable, estable y rápido para tu hogar o negocio.", botón "¡Contrata Ahora!" e indicadores "Alta Velocidad", "Conexión Estable", "Soporte Técnico" y "Cobertura en tu Zona".
   3. Sección de planes "Nuestros Planes", con el subtítulo "Elige el plan ideal para ti", las tarjetas de plan (RF-8) y el aviso de RF-12. Sin tarjetas que mostrar se aplica RF-15.
   4. Franja "¿Por qué elegir Econofibra JLINK?" con "Internet de calidad", "Atención personalizada", "Instalación profesional" y "Soporte técnico siempre contigo".
   5. Llamada "¡Estamos listos para conectarte!" con el botón "Contáctanos por WhatsApp", junto a la franja anterior como en la imagen de referencia.
   6. Footer (RF-18).
-- RF-3: El sistema DEBE mostrar en la página principal y en la de cobertura la misma navegación, salvo la opción activa de cada página: logotipo, opciones "Inicio", "Servicios", "Planes", "Cobertura", "Soporte" y "Contacto" en ese orden, y botón de WhatsApp "Contáctanos". Se aplican estos destinos:
+- RF-3: El sistema DEBE mostrar en la página principal y en la de cobertura la misma navegación, salvo la opción activa de cada página: logotipo, opciones "Inicio", "Servicios", "Cobertura", "Soporte" y "Contacto" en ese orden, y botón de WhatsApp "Contáctanos". Se aplican estos destinos:
   - El logotipo e "Inicio" llevan a la página principal.
   - "Planes" lleva a la sección de planes de la página principal, también desde la página de cobertura.
   - "Cobertura" lleva a la página de cobertura.

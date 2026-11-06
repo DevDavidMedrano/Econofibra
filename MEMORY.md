@@ -9,8 +9,9 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
   decisión del usuario y sin commit todavía. Sus textos redactados siguen pendientes de revisión.
 - Antes de publicar: lista "Pendiente antes de publicar" de la spec 003,
   `SITE_FACEBOOK_URL`, `SITE_YOUTUBE_URL` e imágenes reales de `/cobertura`.
-- `.env` ya tiene el WhatsApp real (`COVERAGE_WHATSAPP_NUMBER`) y `SITE_CONTACT_PHONES` para llamar.
-  Al probar, sustituir `window.open`: no abrir ni escribir a ese número.
+- `.env` ya tiene el WhatsApp real (`COVERAGE_WHATSAPP_NUMBER`).
+  `SITE_CONTACT_PHONES` guarda los teléfonos para llamar.
+  Al probar, sustituir `window.open`: no abrir ni escribir a esos números.
 - `SITE_PLANS_FROM_PRICE` anuncia "Planes desde" en la portada; es texto comercial, no precio por zona.
 - Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona. El usuario las
   eliminó: la tabla está vacía y `DatabaseSeeder` ya no las carga. `PlanCardSeeder` las restaura.
