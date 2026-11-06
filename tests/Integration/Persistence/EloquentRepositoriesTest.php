@@ -14,6 +14,7 @@ use App\Domain\Coverage\ValueObjects\CoverageScenario;
 use App\Domain\Coverage\ValueObjects\GeoPoint;
 use App\Domain\Coverage\ValueObjects\TechnologyStatus;
 use App\Domain\Coverage\ValueObjects\TechnologyType;
+use App\Domain\Coverage\ValueObjects\ZoneName;
 use App\Domain\Plans\Entities\InternetPlan;
 use App\Domain\Plans\ValueObjects\Money;
 use Illuminate\Database\QueryException;
@@ -359,7 +360,11 @@ final class EloquentRepositoriesTest extends TestCase
 
     private function zone(string $name, string $boundary = self::SQUARE): int
     {
-        return DB::table('coverage_zones')->insertGetId(['name' => $name, 'boundary' => $boundary]);
+        return DB::table('coverage_zones')->insertGetId([
+            'name' => $name,
+            'name_key' => (new ZoneName($name))->key(),
+            'boundary' => $boundary,
+        ]);
     }
 
     private function technology(string $code, string $name): int

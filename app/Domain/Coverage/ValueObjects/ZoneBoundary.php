@@ -30,6 +30,12 @@ final readonly class ZoneBoundary
         }
     }
 
+    /** @return list<list<GeoPoint>> */
+    public function polygons(): array
+    {
+        return $this->polygons;
+    }
+
     public function contains(GeoPoint $point): bool
     {
         if ($this->distanceInMetersTo($point) <= self::BORDER_TOLERANCE_METERS) {

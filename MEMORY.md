@@ -3,12 +3,19 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md` es el de Laravel.
 
 ## Estado
-- Specs 001 (consulta de cobertura) y 002 (página principal) terminadas y validadas en navegador.
-  La spec 001 está en el commit 51f9b4c; la spec 002 sigue sin commit.
+- Specs 001 (cobertura), 002 (portada) y 003 (panel en `/panel`) terminadas y validadas en navegador.
+  Commits: spec 001 en 51f9b4c y spec 002 en 51d23f4; la spec 003 sigue sin commit.
 - Hechas `/` y `/cobertura`. Servicios, Soporte y Contacto no existen: van sin enlace en la navegación.
-- Antes de publicar: número de WhatsApp real, direcciones de Facebook y YouTube (`SITE_FACEBOOK_URL`,
-  `SITE_YOUTUBE_URL`), zonas, planes y precios reales, e imágenes reales de `/cobertura`.
+- Antes de publicar: lista "Pendiente antes de publicar" de la spec 003, número de WhatsApp real,
+  `SITE_FACEBOOK_URL`, `SITE_YOUTUBE_URL` e imágenes reales de `/cobertura`.
 - Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona.
+
+## Panel
+- Cuenta (crear o restablecer): `php artisan admin:account correo@dominio` en una consola real;
+  la contraseña se pide oculta, con 12 caracteres o más. La base `econofibra` aún no tiene cuenta.
+- En producción solo se cargan `TechnologySeeder` y `PlanCardSeeder`; nunca `CoverageSampleSeeder`.
+- Repaso sin tocar `econofibra`: base temporal con `DB_DATABASE` exportado antes de `migrate`,
+  `db:seed` y `serve`, más `SESSION_DRIVER=database` y `CACHE_STORE=database`. Borrarla al terminar.
 
 ## Arrancar en local
 - PHP 8.4 por WinGet; si `php` no está en el PATH, añadir
@@ -36,13 +43,10 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
 - La emulación de ubicación del MCP no concede el permiso: queda en `prompt` y la página
   agota los 20 s. Para consultas, sustituir `getCurrentPosition` como indica el plan.
 - `emulate` reemplaza toda la emulación anterior: pasar siempre también `viewport`.
-- Una captura de página completa pinta el aviso fijo de WhatsApp a media página: no es un fallo.
 - El cliente `mysql` de la consola muestra mal los acentos sin `--default-character-set=utf8mb4`.
-- El aviso de RF-44 es fijo; `.final-call__inner` reserva espacio para no tapar el botón final.
-- `emulate` recarga la página: ponerla antes de preparar stubs. Con Slow 3G la respuesta llega antes
-  de `pagehide`; para una respuesta tardía tras Atrás, retener `fetch` con un temporizador.
-- `innerText` de un elemento oculto devuelve su texto: comprobar `hidden`.
-- Las capturas de página completa a 1280 px recortan 15 px por la barra de desplazamiento.
+- `emulate` recarga la página: ponerla antes de preparar stubs.
+- `resize_page` no baja de 500 px: para 360 px usar `emulate` con `viewport`.
 
 ## Sin probar
 - Posición real de un dispositivo con permiso concedido y apertura real de WhatsApp.
+- `admin:account` en consola real sobre MySQL, y HTTPS del panel en un servidor real.

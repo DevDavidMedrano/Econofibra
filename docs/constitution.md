@@ -55,3 +55,4 @@ Principios que ninguna spec, plan o tarea puede incumplir. El detalle está en `
 
 - Las funcionalidades siguen el flujo SDD (skill `sdd`) con aprobación del usuario de la spec, el plan y las tareas.
 - Los cambios pequeños pueden usar `/feature`, salvo que toquen cobertura, precios o recomendación.
+- La verificación es reducida: pruebas automáticas en lógica de negocio, acceso, seguridad y datos, y un repaso básico en navegador para lo demás, sin recorrer requisito por requisito.

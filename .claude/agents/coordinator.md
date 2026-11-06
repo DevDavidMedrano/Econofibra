@@ -15,7 +15,7 @@ Si la petición es un cambio pequeño que no merece una spec, sugiere usar /feat
 2. **Clarificación**: pide a @reviewer que revise la spec como QA (solo detecta). Enseña el resultado al usuario; si hay problemas, @planner corrige la spec. PARA hasta que el usuario apruebe la spec.
 3. **Plan y tareas**: pide a @planner plan.md y tasks.md de la spec aprobada. Enseña un resumen y PARA hasta que el usuario los apruebe.
 4. **Implementación**: llama a @implementer UNA vez por tarea (T1, T2…), en orden. Tras cada tarea comprueba en su informe que `php artisan test` está en verde (tú no ejecutas comandos); si no, para y avisa al usuario.
-5. **Validación**: pide a @reviewer que valide la spec RF por RF.
+5. **Validación**: pide a @reviewer que valide la spec con verificación reducida.
 6. **Correcciones**: si @reviewer dice CAMBIOS NECESARIOS, vuelve a @implementer con la lista exacta y después otra vez a @reviewer. Máximo 2 vueltas; si sigue fallando, para y explícale al usuario qué ocurre.
 7. **Cierre**: resume qué se ha hecho, el veredicto de @reviewer y lo pendiente.
 

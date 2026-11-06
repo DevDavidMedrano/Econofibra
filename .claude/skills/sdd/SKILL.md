@@ -7,7 +7,7 @@ description: Flujo Spec-Driven Development de Econofibra JLINK. Define las plant
 
 Cada funcionalidad vive en `specs/NNN-nombre/` (NNN = siguiente número libre, con tres dígitos; nombre en minúsculas con guiones) y tiene tres archivos: `spec.md`, `plan.md` y `tasks.md`.
 
-Orden obligatorio: spec → aprobación del usuario → plan y tareas → aprobación del usuario → implementación → validación RF por RF.
+Orden obligatorio: spec → aprobación del usuario → plan y tareas → aprobación del usuario → implementación → validación reducida.
 
 ## Requisitos en EARS
 
@@ -48,7 +48,7 @@ Estado: borrador | aprobada
 - <Situación> → <comportamiento esperado> (RF-n)
 
 ## Criterios de finalización
-- [ ] Todos los RF tienen una prueba o verificación en verde.
+- [ ] Las pruebas automáticas están en verde y el repaso en navegador está hecho.
 - [ ] <Criterio propio de esta spec.>
 
 ## Dudas abiertas
@@ -102,7 +102,7 @@ Máximo 10 tareas, en orden. Cada una debe poder implementarse y probarse por se
 ## Terminada significa
 
 - `php artisan test` en verde.
-- Cada RF enlazado a una prueba o verificación con resultado.
-- Los RF de interfaz verificados en navegador, incluida la vista móvil.
+- Pruebas automáticas en lógica de negocio, acceso, seguridad y datos.
+- Repaso básico en navegador, incluida la vista móvil, sin recorrer requisito por requisito.
 - Sin conflictos con `docs/constitution.md`.
 - `MEMORY.md` actualizado tras la última tarea.
