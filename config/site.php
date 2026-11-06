@@ -10,4 +10,7 @@ return [
         'youtube' => env('SITE_YOUTUBE_URL') ?: null,
     ],
 
+    // Teléfonos para llamar, separados por comas.
+    'phones' => env('SITE_CONTACT_PHONES') ?: null,
+
 ];

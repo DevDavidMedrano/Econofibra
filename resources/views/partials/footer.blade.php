@@ -8,14 +8,14 @@
 
         <p class="site-footer__slogan">Tu mejor conexión, <em>nuestro compromiso</em></p>
 
+        @if ($contactPhones !== [])
+            <div class="site-footer__phones">
+                @include('partials.contact-phones', ['linkClass' => 'site-footer__phone'])
+            </div>
+        @endif
+
         <div class="site-footer__contacts">
-            @foreach (['facebook' => 'Facebook', 'youtube' => 'YouTube'] as $network => $label)
-                @isset($socialLinks[$network])
-                    <a class="social-icon" href="{{ $socialLinks[$network] }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $label }}">
-                        <x-icon :name="$network" class="size-6" />
-                    </a>
-                @endisset
-            @endforeach
+            @include('partials.social-links')
 
             <button type="button" class="social-icon" data-whatsapp="contact" aria-label="Contáctanos por WhatsApp">
                 <x-icon name="whatsapp" class="size-6" />

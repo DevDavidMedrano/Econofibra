@@ -12,7 +12,7 @@
         @include('pages.home.partials.advantages')
     </main>
 
-    @include('pages.home.partials.footer')
+    @include('partials.footer')
 
     @include('partials.whatsapp-support')
 @endsection

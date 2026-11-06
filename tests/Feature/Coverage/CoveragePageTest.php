@@ -86,7 +86,7 @@ final class CoveragePageTest extends TestCase
         $this->assertSame('Contáctanos', $this->clean($button->textContent));
     }
 
-    public function test_only_the_active_option_has_a_link(): void
+    public function test_every_option_has_a_link_and_only_the_active_one_is_marked(): void
     {
         $xpath = $this->page();
         $links = [];
@@ -96,10 +96,13 @@ final class CoveragePageTest extends TestCase
             $links[$this->clean($link->textContent)] = $link;
         }
 
-        $this->assertSame(['Inicio', 'Planes', 'Cobertura'], array_keys($links));
+        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
         $this->assertSame(url('/'), $links['Inicio']->getAttribute('href'));
         $this->assertStringEndsWith('/#planes', $links['Planes']->getAttribute('href'));
         $this->assertStringEndsWith('/cobertura', $links['Cobertura']->getAttribute('href'));
+        $this->assertStringEndsWith('/servicios', $links['Servicios']->getAttribute('href'));
+        $this->assertStringEndsWith('/soporte', $links['Soporte']->getAttribute('href'));
+        $this->assertStringEndsWith('/contacto', $links['Contacto']->getAttribute('href'));
 
         $this->assertSame('page', $links['Cobertura']->getAttribute('aria-current'));
         $this->assertCount(1, $xpath->query('//header//*[@aria-current]'));

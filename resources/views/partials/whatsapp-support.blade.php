@@ -1,4 +1,4 @@
-{{-- Aviso fijo y plantillas de WhatsApp, compartidos por la página principal y la de cobertura. --}}
+{{-- Aviso fijo y plantillas de WhatsApp, compartidos por las páginas públicas. --}}
 <div class="whatsapp-fallback" role="status" data-whatsapp-fallback hidden></div>
 
 <template id="tpl-whatsapp-unavailable">

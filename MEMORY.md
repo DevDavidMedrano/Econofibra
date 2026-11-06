@@ -4,10 +4,13 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
 
 ## Estado
 - Specs 001 (cobertura), 002 (portada) y 003 (panel en `/panel`) terminadas y validadas en navegador.
-  Commits: spec 001 en 51f9b4c y spec 002 en 51d23f4; la spec 003 sigue sin commit.
-- Hechas `/` y `/cobertura`. Servicios, Soporte y Contacto no existen: van sin enlace en la navegación.
-- Antes de publicar: lista "Pendiente antes de publicar" de la spec 003, número de WhatsApp real,
+  Commits: spec 001 en 51f9b4c, spec 002 en 51d23f4 y spec 003 en 95efbbb.
+- Hechas `/`, `/cobertura`, `/servicios`, `/soporte` y `/contacto`; las tres últimas, sin spec por
+  decisión del usuario y sin commit todavía. Sus textos redactados siguen pendientes de revisión.
+- Antes de publicar: lista "Pendiente antes de publicar" de la spec 003,
   `SITE_FACEBOOK_URL`, `SITE_YOUTUBE_URL` e imágenes reales de `/cobertura`.
+- `.env` ya tiene el WhatsApp real (`COVERAGE_WHATSAPP_NUMBER`) y `SITE_CONTACT_PHONES` para llamar.
+  Al probar, sustituir `window.open`: no abrir ni escribir a ese número.
 - Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona.
 
 ## Panel

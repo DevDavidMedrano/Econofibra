@@ -19,7 +19,7 @@
             @endforeach
         </ul>
 
-        <a class="btn-outline" href="#consulta">
+        <a class="btn-outline" href="{{ $consultUrl }}">
             <span>Consultar en mi zona</span>
             <x-icon name="chevron-right" class="size-4" />
         </a>

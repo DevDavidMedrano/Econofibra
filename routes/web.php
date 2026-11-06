@@ -9,14 +9,23 @@ use App\Http\Controllers\Admin\ZoneController;
 use App\Http\Controllers\Admin\ZoneImportController;
 use App\Http\Controllers\Admin\ZonePriceController;
 use App\Http\Controllers\Admin\ZoneTechnologyController;
+use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\CoveragePageController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ServicesPageController;
+use App\Http\Controllers\SupportPageController;
 use App\Http\Middleware\EndIdleAdminSession;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePageController::class)->name('home');
 
 Route::get('/cobertura', CoveragePageController::class)->name('coverage.page');
+
+Route::get('/servicios', ServicesPageController::class)->name('services.page');
+
+Route::get('/soporte', SupportPageController::class)->name('support.page');
+
+Route::get('/contacto', ContactPageController::class)->name('contact.page');
 
 Route::prefix('panel')->name('admin.')->group(function (): void {
     Route::middleware('guest')->group(function (): void {

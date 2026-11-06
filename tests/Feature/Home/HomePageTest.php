@@ -95,10 +95,13 @@ final class HomePageTest extends TestCase
             $links[$this->clean($link->textContent)] = $link;
         }
 
-        $this->assertSame(['Inicio', 'Planes', 'Cobertura'], array_keys($links));
+        $this->assertSame(['Inicio', 'Servicios', 'Planes', 'Cobertura', 'Soporte', 'Contacto'], array_keys($links));
         $this->assertSame(url('/'), $links['Inicio']->getAttribute('href'));
         $this->assertStringEndsWith('/#planes', $links['Planes']->getAttribute('href'));
         $this->assertStringEndsWith('/cobertura', $links['Cobertura']->getAttribute('href'));
+        $this->assertStringEndsWith('/servicios', $links['Servicios']->getAttribute('href'));
+        $this->assertStringEndsWith('/soporte', $links['Soporte']->getAttribute('href'));
+        $this->assertStringEndsWith('/contacto', $links['Contacto']->getAttribute('href'));
 
         $this->assertSame('page', $links['Inicio']->getAttribute('aria-current'));
         $this->assertCount(1, $xpath->query('//header//*[@aria-current]'));
