@@ -2,6 +2,10 @@
     <div class="page-container">
         <h2 id="planes-titulo" class="plans__title">Nuestros Planes</h2>
 
+        @if ($plansFromPrice !== null)
+            <p class="plans__from">Planes desde ${{ number_format($plansFromPrice) }} pesos</p>
+        @endif
+
         @if ($planCards !== [])
             <p class="plans__subtitle">Elige el plan ideal para ti</p>
 

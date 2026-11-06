@@ -313,6 +313,20 @@ final class HomePageTest extends TestCase
         $this->assertSame('Contáctanos por WhatsApp', $button->getAttribute('aria-label'));
     }
 
+    public function test_plans_announce_the_configured_starting_price(): void
+    {
+        config(['site.plans_from_price' => 350]);
+
+        $this->get('/')->assertOk()->assertSee('Planes desde $350 pesos');
+    }
+
+    public function test_plans_hide_the_starting_price_when_it_is_not_configured(): void
+    {
+        config(['site.plans_from_price' => null]);
+
+        $this->get('/')->assertOk()->assertDontSee('Planes desde');
+    }
+
     public function test_footer_hides_the_networks_that_are_not_configured(): void
     {
         $this->assertCount(0, $this->page()->query('//footer//a'));

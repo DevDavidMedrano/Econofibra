@@ -11,12 +11,14 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
   `SITE_FACEBOOK_URL`, `SITE_YOUTUBE_URL` e imágenes reales de `/cobertura`.
 - `.env` ya tiene el WhatsApp real (`COVERAGE_WHATSAPP_NUMBER`) y `SITE_CONTACT_PHONES` para llamar.
   Al probar, sustituir `window.open`: no abrir ni escribir a ese número.
-- Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona.
+- `SITE_PLANS_FROM_PRICE` anuncia "Planes desde" en la portada; es texto comercial, no precio por zona.
+- Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona. El usuario las
+  eliminó: la tabla está vacía y `DatabaseSeeder` ya no las carga. `PlanCardSeeder` las restaura.
 
 ## Panel
 - Cuenta (crear o restablecer): `php artisan admin:account correo@dominio` en una consola real;
   la contraseña se pide oculta, con 12 caracteres o más. La base `econofibra` aún no tiene cuenta.
-- En producción solo se cargan `TechnologySeeder` y `PlanCardSeeder`; nunca `CoverageSampleSeeder`.
+- En producción solo se carga `TechnologySeeder`; nunca `CoverageSampleSeeder`.
 - Repaso sin tocar `econofibra`: base temporal con `DB_DATABASE` exportado antes de `migrate`,
   `db:seed` y `serve`, más `SESSION_DRIVER=database` y `CACHE_STORE=database`. Borrarla al terminar.
 
@@ -27,7 +29,7 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
   `bin\mysqld --defaults-file=<esa ruta>\my.ini`; apagar con
   `mysqladmin -h 127.0.0.1 -u root shutdown`.
 - Primera vez: `CREATE DATABASE econofibra CHARACTER SET utf8mb4;` y
-  `php artisan migrate:fresh --seed`. Con datos ya cargados: `php artisan migrate` y
+  `php artisan migrate:fresh --seed`. Con datos ya cargados: `php artisan migrate`.
   `php artisan db:seed --class="Database\Seeders\PlanCardSeeder"`.
 - `npm run build` y `php artisan serve --host=127.0.0.1 --port=8000 --no-reload`.
   Abrir `http://127.0.0.1:8000/`.

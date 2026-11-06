@@ -832,6 +832,18 @@
         height: 2px;
     }
 
+    .plans__from {
+        background: var(--color-yellow-brand);
+        border-radius: 999px;
+        color: var(--color-navy-900);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 10px auto 0;
+        padding: 0.35rem 1.2rem;
+        text-align: center;
+        width: fit-content;
+    }
+
     .plans__subtitle {
         color: var(--color-navy-900);
         font-size: 1rem;

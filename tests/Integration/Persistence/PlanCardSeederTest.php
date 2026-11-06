@@ -24,11 +24,11 @@ final class PlanCardSeederTest extends TestCase
         ['Premium', 300, 'Máximo rendimiento', 'cohete', 4, true],
     ];
 
-    public function test_the_database_seeder_creates_the_four_initial_cards_in_order(): void
+    public function test_the_database_seeder_leaves_the_cards_out(): void
     {
         $this->seed(DatabaseSeeder::class);
 
-        $this->assertSame(self::INITIAL_CARDS, $this->storedCards());
+        $this->assertSame([], $this->storedCards());
     }
 
     public function test_an_empty_table_gets_the_four_initial_cards(): void
@@ -103,6 +103,7 @@ final class PlanCardSeederTest extends TestCase
     public function test_removing_the_sample_data_keeps_the_cards(): void
     {
         $this->seed(DatabaseSeeder::class);
+        $this->seed(PlanCardSeeder::class);
 
         foreach (['zone_plan_prices', 'zone_technologies', 'plans', 'coverage_zones'] as $table) {
             DB::table($table)->where('is_sample', true)->delete();

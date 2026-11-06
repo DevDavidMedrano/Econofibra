@@ -14,6 +14,7 @@ final class HomePageController extends Controller
     {
         return view('pages.home.index', [
             'planCards' => $getPlanCards->execute(),
+            'plansFromPrice' => config('site.plans_from_price'),
             'coverageBarUrl' => route('coverage.page').'#barra-consulta',
             'socialLinks' => SocialLinks::configured(config('site.social')),
             'whatsappNumber' => config('coverage.whatsapp_number'),

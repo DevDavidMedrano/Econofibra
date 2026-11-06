@@ -71,7 +71,7 @@ Que una persona que llega al sitio conozca a Econofibra JLINK, sus planes y sus 
 - RF-31: CUANDO se cargan los datos iniciales y ya existe alguna tarjeta de plan, el sistema DEBE dejar las tarjetas existentes como están, sin duplicarlas, sobrescribirlas ni añadir otras.
 - RF-12: El sistema DEBE mostrar en la sección de planes el aviso "Disponibilidad y precio sujetos a la cobertura de tu zona".
 - RF-13: DONDE una tarjeta tenga la marca "Más Popular", el sistema DEBE mostrarla con la etiqueta "Más Popular", el borde amarillo y el botón amarillo de la imagen de referencia.
-- RF-14: El sistema DEBE omitir en la página principal precios, costos de instalación, recomendación de tecnología y cualquier texto que afirme que un plan está disponible en el domicilio del usuario.
+- RF-14: El sistema DEBE omitir en la página principal precios (salvo el anuncio general "Planes desde", pedido por el usuario y configurable), costos de instalación, recomendación de tecnología y cualquier texto que afirme que un plan está disponible en el domicilio del usuario.
 - RF-15: SI no hay ninguna tarjeta completa o no se pueden leer las tarjetas, ENTONCES el sistema DEBE mostrar el resto de la página y, en la sección de planes, el título, sin el subtítulo, el aviso de RF-12 y un botón "Consultar en mi zona" que lleva al mismo destino que RF-17.
 - RF-16: El sistema DEBE mantener las tarjetas de plan independientes de los planes por zona: ni cuentan para el aviso de datos de ejemplo (RF-26 de la spec 001) ni alteran los resultados de la consulta de cobertura.
 
@@ -131,7 +131,7 @@ Que una persona que llega al sitio conozca a Econofibra JLINK, sus planes y sus 
 - [x] Todos los RF tienen una prueba o verificación en verde.
 - [x] La página a 1280 px está comparada con docs/referencias/pagina-principal.jpeg sección por sección, y las únicas diferencias son las de RF-7.
 - [x] La página está verificada en navegador a 360 y 1280 px, incluidos los enlaces de navegación desde la página principal y desde la de cobertura.
-- [x] Ningún precio ni costo de instalación aparece en la página principal, y el nombre, la velocidad, la frase, la clave de icono, la posición y la marca de cada tarjeta provienen de la base de datos. Los dibujos de los iconos son del sistema.
+- [x] Ningún precio (salvo el anuncio general "Planes desde") ni costo de instalación aparece en la página principal, y el nombre, la velocidad, la frase, la clave de icono, la posición y la marca de cada tarjeta provienen de la base de datos. Los dibujos de los iconos son del sistema.
 - [x] Un cambio de tarjeta en la base de datos se ve en la siguiente carga y no altera los resultados de la consulta de cobertura.
 - [x] El contraste de RF-28 está medido en navegador a 1280 px sobre la foto real.
 - [x] La salida de `/cobertura` y el regreso con Atrás están verificados en navegador con un resultado en pantalla y con una consulta en curso (RF-30, RF-33).

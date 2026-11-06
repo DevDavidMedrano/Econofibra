@@ -12,7 +12,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TechnologySeeder::class,
-            PlanCardSeeder::class,
             CoverageSampleSeeder::class,
         ]);
     }
