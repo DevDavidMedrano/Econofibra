@@ -68,6 +68,9 @@
         @case('chevron-right')
             <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             @break
+        @case('arrow-right')
+            <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            @break
         @case('pin')
             <path fill-rule="evenodd" d="M12 1.5a8 8 0 0 0-8 8c0 5.6 6.6 11.6 7.4 12.6a.8.8 0 0 0 1.2 0c.8-1 7.4-7 7.4-12.6a8 8 0 0 0-8-8Zm0 11.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Z"/>
             @break

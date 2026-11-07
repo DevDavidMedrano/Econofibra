@@ -239,7 +239,7 @@ final class CoveragePageTest extends TestCase
         $this->single($xpath, '//form[@id="consulta"]');
     }
 
-    public function test_temporary_images_exist_on_the_server(): void
+    public function test_page_images_exist_on_the_server(): void
     {
         $xpath = $this->page();
         $sources = [];
@@ -252,8 +252,7 @@ final class CoveragePageTest extends TestCase
         $this->assertCount(3, $sources);
 
         foreach ($sources as $source) {
-            $this->assertStringStartsWith('images/temporal/', $source);
-            $this->assertStringEndsWith('.svg', $source);
+            $this->assertStringStartsWith('images/', $source);
             $this->assertFileExists(public_path($source));
         }
     }

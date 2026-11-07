@@ -29,6 +29,7 @@ final class InformationPagesTest extends TestCase
             'servicios' => ['/servicios', 'Servicios', [
                 'Internet por Fibra Óptica',
                 'Internet por Antena',
+                'Dinos dónde te encuentras',
                 'La disponibilidad de cada tecnología depende de tu zona',
                 'Consultar en mi zona',
             ]],

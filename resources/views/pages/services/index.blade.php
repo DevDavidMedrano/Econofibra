@@ -16,6 +16,8 @@
         <div class="page-container page-body">
             @include('partials.technology-cards', ['consultUrl' => $coverageBarUrl])
 
+            @include('pages.coverage.partials.process')
+
             @include('partials.page-notice', ['text' => 'La disponibilidad de cada tecnología depende de tu zona y está sujeta a validación técnica del domicilio.'])
         </div>
     </main>

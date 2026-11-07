@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(
-            ['partials.footer', 'pages.contact.index'],
+            ['partials.footer', 'pages.contact.partials.tiles'],
             fn (ViewContract $view) => $view->with('contactPhones', ContactPhones::configured(config('site.phones'))),
         );
     }

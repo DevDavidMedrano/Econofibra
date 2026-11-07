@@ -11,17 +11,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
 /**
- * Writes the public pages as plain HTML, so they can be hosted without PHP or a database.
+ * Writes the single public page as plain HTML, so they can be hosted without PHP or a database.
  */
 final class ExportStaticSite extends Command
 {
-    private const PAGES = ['/', '/servicios', '/cobertura', '/soporte', '/contacto'];
+    private const PAGES = ['/'];
 
     private const PUBLIC_FILES = ['build', 'images', 'favicon.ico', 'robots.txt'];
 
     protected $signature = 'site:export {url : Dirección pública del sitio} {--path= : Carpeta de salida}';
 
-    protected $description = 'Exporta las páginas públicas como HTML estático';
+    protected $description = 'Exporta la página pública como HTML estático';
 
     public function handle(Kernel $kernel, Filesystem $files): int
     {
@@ -62,6 +62,11 @@ final class ExportStaticSite extends Command
             } elseif ($files->exists($source)) {
                 $files->copy($source, $target.'/'.$name);
             }
+        }
+
+        // Vite escribe rutas desde la raíz, que fallan si el sitio vive en una subcarpeta.
+        foreach ($files->glob($target.'/build/assets/*.css') as $stylesheet) {
+            $files->put($stylesheet, str_replace('url(/build/assets/', 'url(./', $files->get($stylesheet)));
         }
 
         $files->put($target.'/.nojekyll', '');

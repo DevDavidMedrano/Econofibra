@@ -17,6 +17,8 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
   eliminó: la tabla está vacía y `DatabaseSeeder` ya no las carga. `PlanCardSeeder` las restaura.
 
 ## Sitio estático
+- Decisión del usuario: todo en una sola página con secciones (`pages/home/single`), en modo estático.
+  Las páginas sueltas solo existen sin `SITE_STATIC`.
 - Decisión del usuario: se publica sin base de datos. `SITE_STATIC=true` quita panel y consulta;
   la ubicación solo se prepara para WhatsApp. El código del panel y de zonas sigue en el repositorio.
 - Publicar: `npm run build`, `php artisan site:export https://devdavidmedrano.github.io/Econofibra`

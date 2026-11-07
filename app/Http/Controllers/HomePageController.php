@@ -12,12 +12,24 @@ final class HomePageController extends Controller
 {
     public function __invoke(GetPlanCardsUseCase $getPlanCards): View
     {
-        return view('pages.home.index', [
-            'planCards' => config('site.static') ? [] : $getPlanCards->execute(),
+        $shared = [
             'plansFromPrice' => config('site.plans_from_price'),
-            'coverageBarUrl' => route('coverage.page').'#barra-consulta',
             'socialLinks' => SocialLinks::configured(config('site.social')),
             'whatsappNumber' => config('coverage.whatsapp_number'),
+        ];
+
+        if (config('site.static')) {
+            return view('pages.home.single', $shared + [
+                'planCards' => [],
+                'coverageBarUrl' => '#cobertura',
+                'locationTimeoutSeconds' => config('coverage.location_timeout_seconds'),
+                'serverTimeoutSeconds' => config('coverage.server_timeout_seconds'),
+            ]);
+        }
+
+        return view('pages.home.index', $shared + [
+            'planCards' => $getPlanCards->execute(),
+            'coverageBarUrl' => route('coverage.page').'#barra-consulta',
         ]);
     }
 }

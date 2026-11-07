@@ -1,4 +1,4 @@
-@props(['image' => null, 'imageAlt' => ''])
+@props(['image' => null, 'imageAlt' => '', 'heading' => 'h1'])
 
 <section {{ $attributes->class(['hero', 'hero--plain' => $image === null]) }}>
     @if ($image !== null)
@@ -11,7 +11,7 @@
     </svg>
 
     <div class="hero__content">
-        <h1 class="hero__title">{{ $title }}</h1>
+        <{{ $heading }} class="hero__title">{{ $title }}</{{ $heading }}>
         <p class="hero__subtitle">{{ $slot }}</p>
         <span class="accent-line mt-4" aria-hidden="true"></span>
     </div>

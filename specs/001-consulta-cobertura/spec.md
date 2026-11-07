@@ -41,8 +41,8 @@ Que una persona, desde el domicilio donde quiere el servicio, comparta su ubicac
   2. Mensaje principal "Encuentra el internet ideal para tu zona" y subtítulo "La disponibilidad, velocidad y precio dependen de tu ubicación y de la tecnología disponible."
   3. Barra "Consulta tu cobertura" con el texto "Comparte tu ubicación y descubre qué planes están disponibles en tu zona.", la pregunta de confirmación de domicilio, sus opciones, el aviso de RF-29 y el botón de compartir ubicación, con el texto "Compartir ubicación".
   4. Zona de resultados (RF-53).
-  5. Tarjeta "Internet por Fibra Óptica" con "Alta velocidad", "Conexión estable", "Ideal para hogar y negocio" y el botón "Consultar en mi zona".
-  6. Tarjeta "Internet por Antena" con "Cobertura en zonas alejadas", "Instalación según factibilidad", "Planes según ubicación" y el botón "Consultar en mi zona".
+  5. Tarjeta "Internet por Fibra Óptica" con foto, "Máxima velocidad y estabilidad con tecnología de punta.", "Alta velocidad", "Conexión estable", "Ideal para hogar y negocio" y el botón "Consultar en mi zona".
+  6. Tarjeta "Internet por Antena" con foto, "Conéctate desde cualquier lugar con nuestra antena.", "Cobertura en zonas alejadas", "Instalación según factibilidad", "Planes según ubicación" y el botón "Consultar en mi zona".
   7. Explicación del proceso "¿Cómo saber qué opción tienes?" con los pasos "Comparte tu ubicación", "Validamos la tecnología disponible" y "Te mostramos planes y precio para tu zona".
   8. Aviso de RF-2.
   9. Llamada final "¿No sabes qué tecnología llega a tu casa?", "Nuestro equipo te ayuda" y el botón "Contáctanos por WhatsApp".

@@ -578,28 +578,36 @@
     }
 
     .tech-card__image {
-        height: 190px;
+        height: 240px;
         object-fit: cover;
+        object-position: center 20%;
         width: 100%;
+    }
+
+    .tech-card--antenna .tech-card__image {
+        object-position: center;
     }
 
     .tech-card__body {
         display: flex;
         flex-direction: column;
-        padding: 0 16px 20px;
+        padding: 20px 18px 22px;
         position: relative;
     }
 
     .tech-card__title {
         align-items: center;
-        background: linear-gradient(180deg, #ffd83d, var(--color-yellow-brand));
-        clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%);
-        color: var(--color-navy-950);
+        color: #fff;
         display: flex;
         gap: 12px;
-        margin: -28px -16px 0 0;
-        min-height: 84px;
-        padding: 8px 16px 8px 28px;
+    }
+
+    .tech-card__subtitle {
+        color: #fff;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-top: 14px;
     }
 
     .tech-card__benefits {
@@ -609,6 +617,42 @@
         font-weight: 500;
         gap: 10px;
         margin-block: 20px;
+    }
+
+    .tech-card__action {
+        align-self: flex-start;
+        font-size: 0.95rem;
+    }
+
+    /* Página única */
+    .one-page__anchor,
+    .one-page__section {
+        scroll-margin-top: 0;
+    }
+
+    .one-page__section {
+        padding-block: 48px;
+    }
+
+    .one-page__title {
+        color: var(--color-navy-900);
+        font-size: 2rem;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 1.15;
+        text-align: center;
+    }
+
+    .one-page__title em {
+        color: var(--color-blue-brand);
+    }
+
+    .one-page__lead {
+        color: var(--color-navy-900);
+        font-size: 1.05rem;
+        font-weight: 500;
+        margin-top: 8px;
+        text-align: center;
     }
 
     /* Proceso */
@@ -638,6 +682,15 @@
         gap: 4px;
         line-height: 1.3;
         text-align: center;
+    }
+
+    .process__text {
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+
+    .process__detail {
+        font-size: 0.85rem;
     }
 
     .process__number {
@@ -1615,49 +1668,47 @@
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
+        .site-header:has(a[href="#inicio"]) {
+            position: sticky;
+            top: 0;
+        }
+
+        .one-page__anchor,
+        .one-page__section {
+            scroll-margin-top: 92px;
+        }
+
+        .one-page__title {
+            font-size: 2.5rem;
+        }
+
         .tech-card {
             display: block;
-            min-height: 326px;
+            min-height: 350px;
         }
 
         .tech-card__image {
             height: 100%;
             inset: 0 auto 0 0;
-            mask-image: linear-gradient(90deg, #000 72%, transparent);
+            mask-image: linear-gradient(90deg, #000 62%, transparent 98%);
             position: absolute;
-            width: 58%;
+            width: 52%;
         }
 
-        .tech-card--antenna .tech-card__image {
-            object-position: left center;
-            width: 51%;
+        .tech-card--fiber .tech-card__image {
+            object-position: 64% center;
         }
 
         .tech-card__body {
             margin-left: auto;
-            padding: 24px 26px 18px 0;
-            width: 54%;
-        }
-
-        .tech-card__title {
-            clip-path: polygon(26px 0, 100% 0, 100% 100%, 0 100%);
-            margin: 0 -26px 0 0;
-            padding-left: 36px;
-        }
-
-        .tech-card__benefits {
-            margin-block: 22px;
-            padding-left: 22px;
-        }
-
-        .tech-card .btn-outline {
-            margin-left: 12px;
+            padding: 22px 16px 22px 0;
+            width: 52%;
         }
 
         .process {
             align-items: center;
             gap: 0;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 320px 1fr;
             padding: 8px 20px 12px 34px;
         }
 
@@ -1668,12 +1719,12 @@
 
         .process__step {
             border-left: 2px solid var(--color-navy-800);
-            min-height: 112px;
+            min-height: 132px;
             padding-inline: 16px;
         }
 
         .process__step p {
-            max-width: 220px;
+            max-width: 240px;
         }
 
         .final-call {

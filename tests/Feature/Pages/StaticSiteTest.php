@@ -18,40 +18,57 @@ final class StaticSiteTest extends TestCase
         config(['site.static' => true]);
     }
 
-    public function test_public_pages_run_no_database_query(): void
+    public function test_single_page_runs_no_database_query(): void
     {
         $queries = 0;
         DB::listen(function () use (&$queries): void {
             $queries++;
         });
 
-        foreach (['/', '/servicios', '/cobertura', '/soporte', '/contacto'] as $page) {
-            $this->get($page)->assertOk();
-        }
+        $this->get('/')->assertOk();
 
         $this->assertSame(0, $queries);
     }
 
-    public function test_coverage_page_has_no_server_endpoint_and_explains_the_whatsapp_step(): void
+    public function test_single_page_holds_every_section_and_links_them_from_the_menu(): void
     {
-        $this->get('/cobertura')
+        $response = $this->get('/')->assertOk();
+
+        foreach (['inicio', 'servicios', 'cobertura', 'soporte', 'contacto'] as $section) {
+            $response->assertSee('id="'.$section.'"', false)->assertSee('href="#'.$section.'"', false);
+        }
+
+        $response->assertSee('Fibra Óptica')
+            ->assertSee('Consulta tu cobertura')
+            ->assertSee('Reinicia el módem')
+            ->assertSee('Escríbenos por WhatsApp');
+
+        $this->assertSame(1, substr_count($response->getContent(), '<h1'));
+    }
+
+    public function test_single_page_leaves_whatsapp_buttons_to_a_single_listener(): void
+    {
+        $this->get('/')->assertDontSee('data-whatsapp-number=', false);
+    }
+
+    public function test_coverage_section_has_no_server_endpoint_and_explains_the_whatsapp_step(): void
+    {
+        $this->get('/')
             ->assertOk()
             ->assertSee('data-coverage-endpoint=""', false)
             ->assertSee('solo para preparar tu mensaje de WhatsApp')
             ->assertSee('Ya tenemos tu ubicación');
     }
 
-    public function test_export_writes_every_page_under_the_public_url(): void
+    public function test_export_writes_the_single_page_under_the_public_url(): void
     {
         $target = storage_path('framework/testing/static-site');
 
         $this->artisan('site:export', ['url' => 'https://example.test/sitio', '--path' => $target])->assertSuccessful();
 
-        foreach (['index.html', 'servicios/index.html', 'cobertura/index.html', 'soporte/index.html', 'contacto/index.html'] as $file) {
-            $this->assertFileExists($target.'/'.$file);
-        }
-
-        $this->assertStringContainsString('https://example.test/sitio/cobertura', File::get($target.'/index.html'));
+        $this->assertFileExists($target.'/index.html');
+        $this->assertFileDoesNotExist($target.'/servicios/index.html');
+        $this->assertStringContainsString('https://example.test/sitio/images/logo.jpeg', File::get($target.'/index.html'));
 
         File::deleteDirectory($target);
     }

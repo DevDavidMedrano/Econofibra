@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePageController::class)->name('home');
 
+if (config('site.static')) {
+    return;
+}
+
 Route::get('/cobertura', CoveragePageController::class)->name('coverage.page');
 
 Route::get('/servicios', ServicesPageController::class)->name('services.page');
@@ -26,10 +30,6 @@ Route::get('/servicios', ServicesPageController::class)->name('services.page');
 Route::get('/soporte', SupportPageController::class)->name('support.page');
 
 Route::get('/contacto', ContactPageController::class)->name('contact.page');
-
-if (config('site.static')) {
-    return;
-}
 
 Route::prefix('panel')->name('admin.')->group(function (): void {
     Route::middleware('guest')->group(function (): void {
