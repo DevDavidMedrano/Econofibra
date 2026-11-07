@@ -13,7 +13,7 @@ final class HomePageController extends Controller
     public function __invoke(GetPlanCardsUseCase $getPlanCards): View
     {
         return view('pages.home.index', [
-            'planCards' => $getPlanCards->execute(),
+            'planCards' => config('site.static') ? [] : $getPlanCards->execute(),
             'plansFromPrice' => config('site.plans_from_price'),
             'coverageBarUrl' => route('coverage.page').'#barra-consulta',
             'socialLinks' => SocialLinks::configured(config('site.social')),

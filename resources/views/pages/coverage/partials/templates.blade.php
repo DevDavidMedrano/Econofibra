@@ -55,6 +55,19 @@
     </article>
 </template>
 
+<template id="tpl-location-ready">
+    <article class="result-message">
+        <h3>¡Listo! Ya tenemos tu ubicación</h3>
+        <p>Envíanosla por WhatsApp y te decimos qué planes y precios hay en tu domicilio.</p>
+        <div class="result-actions">
+            <button type="button" class="btn-primary" data-whatsapp="manual">
+                <x-icon name="whatsapp" class="size-5" />
+                <span>Enviar por WhatsApp</span>
+            </button>
+        </div>
+    </article>
+</template>
+
 <template id="tpl-scenario-e-review">
     <article class="result-message">
         <h3>Tu domicilio requiere revisión del equipo técnico</h3>

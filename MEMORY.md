@@ -16,6 +16,12 @@ aporte. Detalle de reglas: leer `AGENTS.md` y `docs/constitution.md`. `README.md
 - Tarjetas de la portada: tabla `plan_cards`, independiente de los planes por zona. El usuario las
   eliminó: la tabla está vacía y `DatabaseSeeder` ya no las carga. `PlanCardSeeder` las restaura.
 
+## Sitio estático
+- Decisión del usuario: se publica sin base de datos. `SITE_STATIC=true` quita panel y consulta;
+  la ubicación solo se prepara para WhatsApp. El código del panel y de zonas sigue en el repositorio.
+- Publicar: `npm run build`, `php artisan site:export https://devdavidmedrano.github.io/Econofibra`
+  y subir `dist/` a la rama `gh-pages`.
+
 ## Panel
 - Cuenta (crear o restablecer): `php artisan admin:account correo@dominio` en una consola real;
   la contraseña se pide oculta, con 12 caracteres o más. La base `econofibra` aún no tiene cuenta.

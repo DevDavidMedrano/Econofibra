@@ -1,7 +1,7 @@
 import { checkCoverage } from './api.js';
 import { canRetry, canShare, initialState, isConsulting, optionsEnabled, reduce } from './flow.js';
 import { requestPosition } from './geolocation.js';
-import { toViewModel } from './presenter.js';
+import { localOutcome, toViewModel } from './presenter.js';
 import { buildMessage, buildUrl, hasNumber, messageData } from './whatsapp.js';
 
 // Une la máquina de estados con la ubicación y el servidor, sin tocar el DOM.
@@ -211,11 +211,13 @@ export function mountCoveragePage(root) {
             geolocation: navigator.geolocation,
             timeoutMs: Number(coverageLocationTimeout) * 1000,
         }),
-        checkCoverage: (location) => checkCoverage({
-            endpoint: coverageEndpoint,
-            location,
-            timeoutMs: Number(coverageServerTimeout) * 1000,
-        }),
+        checkCoverage: async (location) => (coverageEndpoint
+            ? checkCoverage({
+                endpoint: coverageEndpoint,
+                location,
+                timeoutMs: Number(coverageServerTimeout) * 1000,
+            })
+            : localOutcome()),
         onChange: (state, previous) => {
             if (state.message !== previous.message || state.result !== previous.result) {
                 paintResults(root, elements, state);

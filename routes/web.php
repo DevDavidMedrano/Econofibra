@@ -27,6 +27,10 @@ Route::get('/soporte', SupportPageController::class)->name('support.page');
 
 Route::get('/contacto', ContactPageController::class)->name('contact.page');
 
+if (config('site.static')) {
+    return;
+}
+
 Route::prefix('panel')->name('admin.')->group(function (): void {
     Route::middleware('guest')->group(function (): void {
         Route::get('/entrar', [LoginController::class, 'show'])->name('login');
