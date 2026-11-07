@@ -42,6 +42,7 @@ final class StaticSiteTest extends TestCase
             ->assertSee('Consulta tu cobertura')
             ->assertSee('¿Cómo podemos')
             ->assertSee('Redes inalámbricas')
+            ->assertDontSee('Cámaras y seguridad')
             ->assertDontSee('24/7')
             ->assertSee('Escríbenos por WhatsApp');
 

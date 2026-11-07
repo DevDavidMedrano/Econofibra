@@ -2,10 +2,8 @@
     $services = [
         ['image' => 'router', 'icon' => 'conectividad', 'title' => 'Problemas de conexión', 'text' => 'Diagnóstico y solución de fallas de internet.'],
         ['image' => 'fibra', 'icon' => 'fiber', 'title' => 'Fibra Óptica', 'text' => 'Instalación, reparación y mantenimiento.'],
-        ['image' => 'camara', 'icon' => 'camara', 'title' => 'Cámaras y seguridad', 'text' => 'Instalación y soporte en videovigilancia.'],
         ['image' => 'remoto', 'icon' => 'headset', 'title' => 'Soporte remoto', 'text' => 'Resolución de problemas desde donde estés.'],
         ['image' => 'antena', 'icon' => 'tower', 'title' => 'Redes inalámbricas', 'text' => 'Instalación y configuración de enlaces y antenas.'],
-        ['image' => 'redes', 'icon' => 'red', 'title' => 'Redes y configuración', 'text' => 'Configuración de equipos de red y switches.'],
     ];
 @endphp
 

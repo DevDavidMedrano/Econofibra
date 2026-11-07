@@ -68,19 +68,6 @@
         @case('chevron-right')
             <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             @break
-        @case('camara')
-            <path d="M3 5h18v4H3z"/>
-            <path d="M5 10h14v2a7 7 0 0 1-14 0z"/>
-            <circle cx="12" cy="12.5" r="2.6" fill="#fff"/>
-            @break
-        @case('red')
-            <g fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="5" r="3"/>
-                <circle cx="5" cy="18" r="3"/>
-                <circle cx="19" cy="18" r="3"/>
-                <path d="M10.5 7.6 6.5 15.4M13.5 7.6l4 7.8M8 18h8"/>
-            </g>
-            @break
         @case('arrow-right')
             <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
             @break

@@ -935,10 +935,6 @@
             font-size: 1.1rem;
         }
 
-        .support__grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
         .support-whatsapp {
             display: flex;
             gap: 32px;
