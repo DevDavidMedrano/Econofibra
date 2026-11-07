@@ -41,6 +41,8 @@ final class StaticSiteTest extends TestCase
         $response->assertSee('Fibra Óptica')
             ->assertSee('Consulta tu cobertura')
             ->assertSee('¿Cómo podemos')
+            ->assertSee('Horario de atención')
+            ->assertSee('9:00 am a 8:00 pm')
             ->assertSee('Redes inalámbricas')
             ->assertDontSee('Cámaras y seguridad')
             ->assertDontSee('24/7')

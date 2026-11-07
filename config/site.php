@@ -16,6 +16,9 @@ return [
     // Precio inicial que anuncia la sección de planes, en pesos. Sin valor no se muestra.
     'plans_from_price' => filter_var(env('SITE_PLANS_FROM_PRICE'), FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) ?: null,
 
+    // Horario de atención que se muestra en Contacto y en el pie de página.
+    'hours' => env('SITE_BUSINESS_HOURS') ?: '9:00 am a 8:00 pm',
+
     // Teléfonos para llamar, separados por comas.
     'phones' => env('SITE_CONTACT_PHONES') ?: null,
 

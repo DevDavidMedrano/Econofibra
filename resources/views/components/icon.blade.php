@@ -89,6 +89,10 @@
         @case('bars')
             <path d="M1 16h4v5H1zM7.3 12h4v9h-4zM13.6 7.5h4V21h-4zM19.9 3h4v18h-4z"/>
             @break
+        @case('reloj')
+            <circle cx="12" cy="12" r="9.6" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M12 6.5V12l3.6 2.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            @break
         @case('info')
             <circle cx="12" cy="12" r="9.6" fill="none" stroke="currentColor" stroke-width="2.4"/>
             <path d="M10.7 10.6h2.6V17h-2.6zM10.7 6.8h2.6v2.4h-2.6z"/>

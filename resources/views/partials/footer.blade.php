@@ -11,6 +11,7 @@
         @if ($contactPhones !== [])
             <div class="site-footer__phones">
                 @include('partials.contact-phones', ['linkClass' => 'site-footer__phone'])
+                <p class="site-footer__hours">Horario de atención: {{ config('site.hours') }}</p>
             </div>
         @endif
 
