@@ -40,7 +40,9 @@ final class StaticSiteTest extends TestCase
 
         $response->assertSee('Fibra Óptica')
             ->assertSee('Consulta tu cobertura')
-            ->assertSee('Reinicia el módem')
+            ->assertSee('¿Cómo podemos')
+            ->assertSee('Redes inalámbricas')
+            ->assertDontSee('24/7')
             ->assertSee('Escríbenos por WhatsApp');
 
         $this->assertSame(1, substr_count($response->getContent(), '<h1'));

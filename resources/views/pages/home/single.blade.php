@@ -40,13 +40,8 @@
             </div>
         </div>
 
-        <section id="soporte" class="one-page__section" aria-labelledby="soporte-titulo" data-page-section>
-            <div class="page-container">
-                <h2 id="soporte-titulo" class="one-page__title">Soporte <em>Técnico</em></h2>
-                <p class="one-page__lead">Si tu internet falla, prueba estos pasos y escríbenos por WhatsApp.</p>
-
-                @include('pages.support.partials.steps')
-            </div>
+        <section id="soporte" class="one-page__anchor support" aria-labelledby="soporte-titulo" data-page-section>
+            @include('pages.support.partials.showcase')
         </section>
 
         <section id="contacto" class="one-page__section" aria-labelledby="contacto-titulo" data-page-section>

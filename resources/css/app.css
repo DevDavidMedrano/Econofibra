@@ -635,6 +635,10 @@
         padding-block: 48px;
     }
 
+    .one-page__coverage {
+        padding-bottom: 48px;
+    }
+
     .one-page__title {
         color: var(--color-navy-900);
         font-size: 2rem;
@@ -654,6 +658,303 @@
         font-weight: 500;
         margin-top: 8px;
         text-align: center;
+    }
+
+    /* Soporte técnico */
+    .support__hero {
+        background: linear-gradient(115deg, #f4f8fe, #dce9fa);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .support__photo {
+        height: 220px;
+        object-fit: cover;
+        object-position: right center;
+        width: 100%;
+    }
+
+    .support__intro {
+        margin-inline: auto;
+        max-width: var(--site-width);
+        padding: 24px 16px 28px;
+        position: relative;
+    }
+
+    .support__brand {
+        align-items: center;
+        display: flex;
+        gap: 16px;
+    }
+
+    .support__logo {
+        mix-blend-mode: multiply;
+        width: 112px;
+    }
+
+    .support__title {
+        border-left: 1px solid var(--color-navy-800);
+        color: var(--color-navy-900);
+        font-size: 2.3rem;
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        padding-left: 16px;
+    }
+
+    .support__title em {
+        color: var(--color-blue-brand);
+        display: block;
+    }
+
+    .support__tagline {
+        color: var(--color-navy-900);
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 16px;
+    }
+
+    .support__lead {
+        color: var(--color-navy-900);
+        font-weight: 500;
+        line-height: 1.4;
+        margin-top: 12px;
+        max-width: 560px;
+    }
+
+    .support__benefits {
+        background: var(--color-navy-900);
+        border-radius: 18px;
+        color: #fff;
+        display: grid;
+        font-size: 0.9rem;
+        font-weight: 600;
+        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        line-height: 1.2;
+        margin-top: 20px;
+        max-width: 620px;
+        padding: 14px 16px;
+    }
+
+    .support__benefits li {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+    }
+
+    .support__body {
+        padding-block: 40px 48px;
+    }
+
+    .support__grid {
+        display: grid;
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .support-card {
+        align-items: center;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: var(--shadow-soft);
+        color: var(--color-navy-900);
+        cursor: pointer;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 36% 1fr auto;
+        overflow: hidden;
+        padding-right: 12px;
+        text-align: left;
+        transition: transform 150ms ease;
+    }
+
+    .support-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .support-card__image {
+        height: 100%;
+        min-height: 120px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .support-card__body {
+        display: grid;
+        gap: 6px;
+        padding-block: 10px;
+    }
+
+    .support-card__title {
+        align-items: center;
+        display: flex;
+        font-size: 1.02rem;
+        gap: 8px;
+        line-height: 1.15;
+    }
+
+    .support-card__text {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .support-card__arrow {
+        align-items: center;
+        background: var(--color-navy-900);
+        border-radius: 999px;
+        color: #fff;
+        display: flex;
+        height: 30px;
+        justify-content: center;
+        width: 30px;
+    }
+
+    .support-whatsapp {
+        align-items: center;
+        background: radial-gradient(circle at 85% 50%, #1763d1, transparent 42%), linear-gradient(100deg, var(--color-navy-900), var(--color-navy-950));
+        border-radius: 28px;
+        box-shadow: var(--shadow-soft);
+        color: #fff;
+        display: grid;
+        gap: 16px;
+        justify-items: center;
+        margin-top: 28px;
+        padding: 24px 20px;
+        text-align: center;
+    }
+
+    .support-whatsapp__icon {
+        color: #25d366;
+        height: 72px;
+        width: 72px;
+    }
+
+    .support-whatsapp__title {
+        font-size: 1.7rem;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 1.1;
+    }
+
+    .support-whatsapp__title em {
+        color: #4be36f;
+    }
+
+    .support-whatsapp__text {
+        font-weight: 500;
+        margin-top: 4px;
+    }
+
+    .support-whatsapp__list {
+        display: grid;
+        font-size: 0.92rem;
+        font-weight: 500;
+        gap: 8px;
+        text-align: left;
+    }
+
+    .support-whatsapp__list li {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+    }
+
+    .support-whatsapp__action {
+        align-items: center;
+        background: linear-gradient(180deg, #38e04f, #15b83a);
+        border-radius: 999px;
+        box-shadow: 0 6px 14px rgb(21 184 58 / 0.35);
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-weight: 700;
+        gap: 0.6rem;
+        justify-content: center;
+        min-height: 54px;
+        padding: 0.6rem 1.5rem;
+        transition: transform 150ms ease;
+    }
+
+    .support-whatsapp__action:hover {
+        transform: translateY(-2px);
+    }
+
+    .support-whatsapp__slogan {
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    @media (min-width: 48rem) {
+        .support__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .support__photo {
+            height: 100%;
+            inset: 0 0 0 auto;
+            mask-image: linear-gradient(90deg, transparent, #000 22%);
+            position: absolute;
+            width: 54%;
+        }
+
+        .support__intro {
+            padding: 36px 28px 40px 56px;
+        }
+
+        .support__intro > * {
+            max-width: 640px;
+        }
+
+        .support__logo {
+            width: 190px;
+        }
+
+        .support__brand {
+            gap: 24px;
+        }
+
+        .support__title {
+            font-size: 3.6rem;
+            padding-left: 24px;
+        }
+
+        .support__tagline {
+            font-size: 1.5rem;
+        }
+
+        .support__lead {
+            font-size: 1.1rem;
+        }
+
+        .support__grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .support-whatsapp {
+            display: flex;
+            gap: 32px;
+            justify-content: space-between;
+            padding: 24px 40px;
+            text-align: left;
+        }
+
+        .support-whatsapp__list {
+            border-left: 1px solid rgb(255 255 255 / 0.5);
+            padding-left: 28px;
+        }
+
+        .support-whatsapp__slogan {
+            transform: rotate(-6deg);
+        }
     }
 
     /* Proceso */
