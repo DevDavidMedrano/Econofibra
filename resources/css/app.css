@@ -24,6 +24,7 @@
     --color-yellow-brand: #fdc91f;
     --color-yellow-dark: #f4b400;
 
+    --site-width: 1800px;
     --shadow-soft: 0 10px 28px rgb(7 29 79 / 0.14);
 }
 
@@ -57,7 +58,7 @@
 
     .page-container {
         margin-inline: auto;
-        max-width: 1256px;
+        max-width: var(--site-width);
         padding-inline: 16px;
     }
 
@@ -165,7 +166,7 @@
         gap: 0 12px;
         grid-template-columns: 1fr auto;
         margin-inline: auto;
-        max-width: 1280px;
+        max-width: var(--site-width);
         padding: 0 16px 10px;
     }
 
@@ -271,7 +272,7 @@
 
     .hero__content {
         margin-inline: auto;
-        max-width: 1256px;
+        max-width: var(--site-width);
         padding: 32px 16px 0;
         position: relative;
     }
@@ -728,7 +729,7 @@
         flex-direction: column;
         gap: 22px;
         margin-inline: auto;
-        max-width: 1256px;
+        max-width: var(--site-width);
         padding: 20px 16px 40px;
         position: relative;
     }
@@ -781,7 +782,7 @@
 
     .home-hero__content {
         margin-inline: auto;
-        max-width: 1256px;
+        max-width: var(--site-width);
         padding: 28px 16px;
         position: relative;
         z-index: 2;
@@ -1158,7 +1159,7 @@
         gap: 18px;
         justify-items: center;
         margin-inline: auto;
-        max-width: 1280px;
+        max-width: var(--site-width);
         padding: 0 16px 24px;
     }
 
@@ -1369,7 +1370,7 @@
 
         /* Degradado de RF-28: sigue a los textos, que no escalan con el ancho, y se apaga antes del rostro. */
         .home-hero::after {
-            --hero-text-left: max(0px, (100% - 1280px) / 2);
+            --hero-text-left: max(0px, (100% - var(--site-width)) / 2);
             background: linear-gradient(90deg, rgb(4 19 58 / 0.84) 0, rgb(4 19 58 / 0.82) calc(var(--hero-text-left) + 620px), rgb(4 19 58 / 0.64) calc(var(--hero-text-left) + 712px), rgb(4 19 58 / 0.3) calc(var(--hero-text-left) + 745px), transparent max(calc(var(--hero-text-left) + 770px), 64%));
             content: '';
             inset: 0;
@@ -1378,7 +1379,7 @@
         }
 
         .home-hero__content {
-            max-width: 1280px;
+            max-width: var(--site-width);
             padding: 56px 28px 22px 56px;
             width: 100%;
         }
